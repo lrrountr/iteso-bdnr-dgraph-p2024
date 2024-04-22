@@ -13,7 +13,7 @@ def set_schema(client):
         friend
         age
         married
-        loc
+        location
         dob
     }
 
@@ -21,7 +21,7 @@ def set_schema(client):
     friend: [uid] @reverse .
     age: int .
     married: bool .
-    loc: geo .
+    location: geo .
     dob: datetime .
     """
     return client.alter(pydgraph.Operation(schema=schema))
@@ -37,7 +37,7 @@ def create_data(client):
             'name': 'Leo',
             'age': 39,
             'married': True,
-            'loc': {
+            'location': {
                 'type': 'Point',
                 'coordinates': [-122.804489, 45.485168],
             },
@@ -99,7 +99,7 @@ def search_person(client, name):
             name
             age
             married
-            loc
+            location
             dob
             friend {
                 name
